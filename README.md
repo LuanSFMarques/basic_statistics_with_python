@@ -13,7 +13,8 @@ So, let’s embark on this exciting journey together!
 
 ## **Table of Contents**
 - Requirements
-- Central Tendency
+- Central Tendency (Theory)
+- Central Tendency (Practice)
 - Dispersion
 - Distribution
 - Final Project
@@ -96,7 +97,7 @@ print(scipy.__version__)
 
 ## **Central Tendency**
 
-### **Theoretical Content on Central Tendency**
+### **Central Tendency (Theory)**
 
 *Note: If you're already comfortable with this topic and understand the nuances well, feel free to skip to the practical part!*
 
@@ -211,13 +212,17 @@ Remember, summarizing data always involves some loss of information. It’s up t
 
 ---
 
-### **Practical Content on Central Tendency**
+### **Central Tendency (Practice)**
 
 Finally, the practical part! This section is straightforward because it’s very easy to apply these central tendency functions using Python. You’ll only need to import NumPy and SciPy.
 
 NumPy is essentially a library that does what standard Python lists don’t do well: handle numbers efficiently. NumPy arrays use much more sophisticated methods and structures to make our "lists" faster to manipulate, especially when dealing with very large datasets.
 
 On the other hand, SciPy is a library specifically designed for scientific and technical computing. I won’t spend too much time explaining what it does, but for now, know that we’ll borrow a central tendency function from it.
+
+---
+
+#### **Importing Libraries**
 
 ```python
 import numpy as np
@@ -265,3 +270,103 @@ You’ll notice that, except for the slight formatting difference, the result is
 ---
 
 #### **Applying Central Tendency Functions**
+
+Now we can use all the three central tendency functions we learned in practice! Two of three function (*mean and median*) will be available in the numpy lib, and the last one (*mode*) will be available in the "scipy.stats" module.
+
+```python
+array2_mean = array2.mean()
+array2_median = np.median(array2)
+array2_mode = stats.mode(array2).mode # we need to call ".mode" again in the end of the line because the function .mode() returns a object, inside this object we have what we want, the "mode" as an numpy int.
+
+print(f"Array 2 mean: {array2_mean}")
+print(f"Array 2 median: {array2_median}")
+print(f"Array 2 mode: {array2_mode}")
+```
+
+Output
+
+```terminal
+> Array 2 mean: 50.0
+> Array 2 median: 50.0
+> Array 2 mode: 0
+```
+
+So, pretty simple right? To call the mean function, we just put .mean() in the end of our numpy array. To call the median function, we need to get the function from np module and insert our numpy array as an argument. To call the mode function we need to get the mode function from stats (module from scipy) and use the array as an argument again.
+
+*Note: Sometimes you will see that not all functions work with the same instructions, like the mean function (that is a built-in function inside the numpy array class) and the median function (that is a separated functions inside the module numpy, using you array as an argument inside this function). Just keep practice and this inconstancies will never bother you.*
+
+So, there we have it! The just used the three main functions in central tendency, but we are not here just to know the commands, right? Let's look further and take some very simple insights.
+
+---
+
+#### **Histogram**
+
+Sometimes, stare to numbers, especially in larger samples, will not give you a real notion of what that data means. A tool that is very often used to analyse numeric data is graphs, or in this case, histogram graph!
+
+Histogram is a type of graph show to us how much numbers in certain intervals repeat in a sample, in crescent order.
+
+Take this image as a reference:
+![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph1.png)
+
+Here the x-axis represents the interval numbers and the y-axis represents the frequency of appearance. To take an example, between the interval of -0.96 and 0.93 we have more than 17.500 numbers. The blue columns are called "beans", and it represents here the intervals! So when we build our own graph, we can tell "how many intervals we want", or technically speaking, how much beans. 
+
+Look at this another example of the same graph but with many more beans!
+![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph2.png)
+
+We have a better notion of the visual structure of our data, but we have less visual precision in numbers because the intervals are very small (we could increase the size of the image and add more ticks in the x-axis indicating more intervals, but it will make the image polluted for educational purposes).
+
+*Note: The more beans we have, the smaller the intervals will become and more precise the graph will be! Just remember that the number of intervals must be in context of the data*
+
+---
+
+#### **Histogram Graph Plot with Matplotlib**
+
+First things first, "plot" means that we are making graphical representation of our data in a graph, making a relationship between two or more variables.
+
+To create a plot of our data (array3), we need to use "Matplotlib" library. This will allow us to easily create some basic graphs just to look and learn more about or array.
+
+Follow the instructions bellow to create the graph that i displayed earlier.
+
+First, we need to import the "matplotlib" amoung our others libraries:
+```python
+import matplotlib.pyplot as plt
+```
+
+Here we are importing a module from matplotlib (like we have done with scipy, getting the stats module). You will not want to write "matplotlib.pyplot" in every line, so we used an easy alias "plt".
+
+Before we create our graph, we need a new array, follow the next command block:
+```python
+array3 = np.random.normal(loc=0, scale=2, size=50000)
+print(f"Numpy Array 3: {array3}\n")
+```
+
+Output
+```python
+> Numpy Array 3: [-0.22725259  2.75397768 -2.31461563 ... -1.73485301  0.62375124  0.46577891]
+```
+
+
+This new function called "random.normal()" will create what we call a "bell curve" with random values. The meaning of this type of array will be explaned in a future section. Just know that the histogram of these numbers will form what it looks like a "bell". We passed 50.000 in the argument "size" to create an array with 50.000 numbers, simple as that.
+
+*Note: The intention here is to focus on the graph making and interpretation in central tendency. The meaning of the "array 3" function is part of another section!*
+
+After this, we already can create our graph!
+
+
+```python
+plt.hist(array3, bins=200)
+plt.show()
+```
+
+Output
+![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph2.png)
+
+So, is very simple to make this kind of basic graph. First, just use "plt" module to call the "hist" function. Inside this function, pass the array as an argument and the numbers of bins (we used 200, so it's 200 intervals!).
+
+The next thing is show the graph for us! If you use jupyter lab, you will only need the first line ("plt.hist(array3, bins=200)") to plot the graph and show it for you. But if you are using vscode or other similar code editon, you will need to use the command "plt.show()".
+
+*Note: We created an array using np.random.normal(). This functions, as you can see, create RANDOM numbers based on some conditions, so my graph and your graph may look a little different.*
+
+
+
+
