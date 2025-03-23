@@ -12,12 +12,16 @@ Statistics is a powerful tool for understanding the behavior of datasets and int
 So, let’s embark on this exciting journey together!
 
 ## **Table of Contents**
-- Requirements
-- Central Tendency (Theory)
-- Central Tendency (Practice)
-- Dispersion
-- Distribution
-- Final Project
+- [Requirements](##requirements)
+- [Central Tendency - Theory](#central-tendency-theory)
+- [Central Tendency - Practice](#central-tendency-practice)
+- [Central Tendency - Exercises](#central-tendency-exercises)
+- [Distribution - Theory](#distribution-theory)
+- [Distribution - Practice](#distribution-practice)
+- [Distribution - Exercises](#distribution-exercises)
+- [Dispersion - Theory](#dispersion-theory)
+- [Dispersion - Practice](#dispersion-practice)
+- [Dispersion - Exercises](#dispersion-exercises)
 
 ## **Requirements**
 In this section, we will cover the requirements and some initial setup content.
