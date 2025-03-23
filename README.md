@@ -498,7 +498,7 @@ After adding these extreme values, you can see that both the mean and the median
 
 Now that you’ve learned how to calculate the mean and median, and how these measures behave in symmetric and asymmetric distributions, let’s practice with some exercises. Here you will practice with 6 problems!
 
-#### Exercise 1 -----------------------------
+#### Exercise 1 ----------------------------------------------------------
 Given the following array:
 ```python
 array = np.array([12, 15, 17, 19, 22, 23, 25, 29, 31, 35])
@@ -509,7 +509,7 @@ print(f"Mean: {mean}, Median: {median}")
 ```
 Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
 
-#### Exercise 2 -----------------------------
+#### Exercise 2 ----------------------------------------------------------
 Given the following array:
 ```python
 array = np.array([5, 10, 15, 25, 50, 70, 100, 200])
@@ -519,7 +519,7 @@ median = ?
 print(f"Mean: {mean}, Median: {median}")
 ```
 Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
-#### Exercise 3 -----------------------------
+#### Exercise 3 ----------------------------------------------------------
 Given the following array:
 ```python
 array = np.array([1, 3, 4, 4, 5, 7, 8, 9, 9, 10, 12, 13, 14, 15, 16])
@@ -529,7 +529,7 @@ median = ?
 print(f"Mean: {mean}, Median: {median}")
 ```
 Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
-#### Exercise 4 -----------------------------
+#### Exercise 4 ----------------------------------------------------------
 Consider the following histogram.
 
 Observe the graph below and answer the following:
@@ -537,7 +537,7 @@ Observe the graph below and answer the following:
 
 Is the mean equal to, greater than, or less than the median?
 Provide a brief explanation based on the graph.
-#### Exercise 5 -----------------------------
+#### Exercise 5 ----------------------------------------------------------
 Consider the following histogram.
 
 Observe the graph below and answer the following:
@@ -545,7 +545,7 @@ Observe the graph below and answer the following:
 
 Is the mean equal to, greater than, or less than the median?
 Provide a brief explanation based on the graph.
-#### Exercise 6 -----------------------------
+#### Exercise 6 ----------------------------------------------------------
 Consider the following histogram.
 
 Observe the graph below and answer the following:
