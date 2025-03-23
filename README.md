@@ -306,11 +306,13 @@ Sometimes, looking at raw numbers—especially in larger samples—doesn’t giv
 A histogram is a type of graph that shows how frequently numbers in certain intervals appear in a dataset, in ascending order.
 
 Take this image as a reference:
+
 ![Hist Graph](images/hist_graph1.png)
 
 Here, the x-axis represents the number intervals, and the y-axis represents the frequency of occurrences. For example, in the interval between -0.96 and 0.93, we have more than 17,500 numbers. The blue columns are called "bins," representing the intervals! When creating our own graph, we can specify "how many intervals we want," or technically speaking, how many bins.
 
 Now, look at another example of the same graph with a greater number of bins:
+
 ![Hist Graph](images/hist_graph2.png)
 
 This version gives us a better visual understanding of our data’s structure, but less numerical precision because the intervals are very small. We could increase the image size and add more ticks on the x-axis to indicate more intervals, but that would make the visualization too cluttered for educational purposes.
