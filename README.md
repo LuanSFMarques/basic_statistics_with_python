@@ -306,12 +306,12 @@ Sometimes, looking at raw numbers—especially in larger samples—doesn’t giv
 A histogram is a type of graph that shows how frequently numbers in certain intervals appear in a dataset, in ascending order.
 
 Take this image as a reference:
-![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph1.png)
+![Hist Graph](images/hist_graph1.png)
 
 Here, the x-axis represents the number intervals, and the y-axis represents the frequency of occurrences. For example, in the interval between -0.96 and 0.93, we have more than 17,500 numbers. The blue columns are called "bins," representing the intervals! When creating our own graph, we can specify "how many intervals we want," or technically speaking, how many bins.
 
 Now, look at another example of the same graph with a greater number of bins:
-![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph2.png)
+![Hist Graph](images/hist_graph2.png)
 
 This version gives us a better visual understanding of our data’s structure, but less numerical precision because the intervals are very small. We could increase the image size and add more ticks on the x-axis to indicate more intervals, but that would make the visualization too cluttered for educational purposes.
 
@@ -358,7 +358,7 @@ plt.show()
 ```
 
 Output
-![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph2.png)
+![Hist Graph](images/hist_graph2.png)
 
 Creating this type of basic graph is very simple. First, we use the "plt" module to call the hist function. Inside this function, we pass the array as an argument and specify the number of bins (we used 200, meaning 200 intervals!).
 
@@ -402,7 +402,7 @@ plt.axvline(array3_mean, color='yellow', linewidth=2, label=f'Median {array3_med
 plt.show() # Old Line
 ```
 Output
-![](/By_type/Statistics/basic_statistics_with_python/images/hist_graph3.png)
+![](images/hist_graph3.png)
 
 Between the plt.hist() and plt.show() functions, we’ve added vertical lines to mark the mean and median values. This allows us to visually see what they represent in our graph.
 
@@ -444,7 +444,7 @@ plt.legend()
 plt.show()
 ```
 Output
-![](/By_type/Statistics/basic_statistics_with_python/images/hist_graph4.png)
+![](images/hist_graph4.png)
 
 In this case, array4 is created to have a skewed bell curve. Notice that the mean is greater than the median. Visually, you can see that while the peak of the graph is still centered at 0, the right side is stretched more than the left side.
 
@@ -486,7 +486,7 @@ plt.show()
 ```
 
 Output
-![](/By_type/Statistics/basic_statistics_with_python/images/hist_graph5.png)
+![](images/hist_graph5.png)
 
 After adding these extreme values, you can see that both the mean and the median have shifted. The mean moved almost 2.7 units to the right, while the median only shifted 0.1 units. If you used the mean to represent the central tendency of the data, it would be misleading. The more asymmetrical the graph, the greater the discrepancy between the mean and median.
 
@@ -529,20 +529,26 @@ print(f"Mean: {mean}, Median: {median}")
 Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
 #### Exercise 4 -----------------------------
 Consider the following histogram.
+
 Observe the graph below and answer the following:
-![](/By_type/Statistics/basic_statistics_with_python/images/exec4.png)
+![](images/exec4.png)
+
 Is the mean equal to, greater than, or less than the median?
 Provide a brief explanation based on the graph.
 #### Exercise 5 -----------------------------
 Consider the following histogram.
+
 Observe the graph below and answer the following:
-![](/By_type/Statistics/basic_statistics_with_python/images/exec5.png)
+![](images/exec5.png)
+
 Is the mean equal to, greater than, or less than the median?
 Provide a brief explanation based on the graph.
 #### Exercise 6 -----------------------------
 Consider the following histogram.
+
 Observe the graph below and answer the following:
-![](/By_type/Statistics/basic_statistics_with_python/images/exec6.png)
+![](images/exec6.png)
+
 Is the mean equal to, greater than, or less than the median?
 Provide a brief explanation based on the graph.
 
