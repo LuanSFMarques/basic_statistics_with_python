@@ -271,7 +271,7 @@ You’ll notice that, except for the slight formatting difference, the result is
 
 #### **Applying Central Tendency Functions**
 
-Now we can use all the three central tendency functions we learned in practice! Two of three function (*mean and median*) will be available in the numpy lib, and the last one (*mode*) will be available in the "scipy.stats" module.
+Now we can put into practice all three central tendency functions we learned! Two of the three functions (mean and median) are available in the NumPy library, while the last one (mode) is available in the "scipy.stats" module.
 
 ```python
 array2_mean = array2.mean()
@@ -291,50 +291,50 @@ Output
 > Array 2 mode: 0
 ```
 
-So, pretty simple right? To call the mean function, we just put .mean() in the end of our numpy array. To call the median function, we need to get the function from np module and insert our numpy array as an argument. To call the mode function we need to get the mode function from stats (module from scipy) and use the array as an argument again.
+Pretty simple, right? To call the mean function, we just use .mean() at the end of our NumPy array. To call the median function, we use np.median() and pass our NumPy array as an argument. To call the mode function, we use stats.mode() from the SciPy module, passing the array as an argument.
 
-*Note: Sometimes you will see that not all functions work with the same instructions, like the mean function (that is a built-in function inside the numpy array class) and the median function (that is a separated functions inside the module numpy, using you array as an argument inside this function). Just keep practice and this inconstancies will never bother you.*
+Note: Sometimes, you’ll notice that not all functions work with the same syntax, such as the mean function (which is a built-in method of the NumPy array class) and the median function (which is a separate function in the NumPy module that requires the array as an argument). Just keep practicing, and these inconsistencies will no longer bother you.
 
-So, there we have it! The just used the three main functions in central tendency, but we are not here just to know the commands, right? Let's look further and take some very simple insights.
+Now we’ve successfully used the three main central tendency functions. But we’re not here just to learn the commands, right? Let’s go further and extract some simple insights.
 
 ---
 
 #### **Histogram**
 
-Sometimes, stare to numbers, especially in larger samples, will not give you a real notion of what that data means. A tool that is very often used to analyse numeric data is graphs, or in this case, histogram graph!
+Sometimes, looking at raw numbers—especially in larger samples—doesn’t give you a clear understanding of what the data means. A tool often used to analyze numeric data is graphs, specifically in this case, a histogram!
 
-Histogram is a type of graph show to us how much numbers in certain intervals repeat in a sample, in crescent order.
+A histogram is a type of graph that shows how frequently numbers in certain intervals appear in a dataset, in ascending order.
 
 Take this image as a reference:
 ![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph1.png)
 
-Here the x-axis represents the interval numbers and the y-axis represents the frequency of appearance. To take an example, between the interval of -0.96 and 0.93 we have more than 17.500 numbers. The blue columns are called "beans", and it represents here the intervals! So when we build our own graph, we can tell "how many intervals we want", or technically speaking, how much beans. 
+Here, the x-axis represents the number intervals, and the y-axis represents the frequency of occurrences. For example, in the interval between -0.96 and 0.93, we have more than 17,500 numbers. The blue columns are called "bins," representing the intervals! When creating our own graph, we can specify "how many intervals we want," or technically speaking, how many bins.
 
-Look at this another example of the same graph but with many more beans!
+Now, look at another example of the same graph with a greater number of bins:
 ![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph2.png)
 
-We have a better notion of the visual structure of our data, but we have less visual precision in numbers because the intervals are very small (we could increase the size of the image and add more ticks in the x-axis indicating more intervals, but it will make the image polluted for educational purposes).
+This version gives us a better visual understanding of our data’s structure, but less numerical precision because the intervals are very small. We could increase the image size and add more ticks on the x-axis to indicate more intervals, but that would make the visualization too cluttered for educational purposes.
 
-*Note: The more beans we have, the smaller the intervals will become and more precise the graph will be! Just remember that the number of intervals must be in context of the data*
+Note: The more bins we have, the smaller the intervals become, making the graph more precise. Just remember that the number of intervals should be appropriate for the data size and variety.
 
 ---
 
 #### **Histogram Graph Plot with Matplotlib**
 
-First things first, "plot" means that we are making graphical representation of our data in a graph, making a relationship between two or more variables.
+First things first, "plot" means creating a graphical representation of our data by establishing relationships between two or more variables.
 
-To create a plot of our data (array3), we need to use "Matplotlib" library. This will allow us to easily create some basic graphs just to look and learn more about or array.
+To create a plot of our data (array3), we need to use the "Matplotlib" library. This will allow us to generate basic graphs to better understand our dataset.
 
-Follow the instructions bellow to create the graph that i displayed earlier.
+Follow the instructions below to create the graph displayed earlier.
 
-First, we need to import the "matplotlib" amoung our others libraries:
+First, we need to import Matplotlib alongside our other libraries:
 ```python
 import matplotlib.pyplot as plt
 ```
 
-Here we are importing a module from matplotlib (like we have done with scipy, getting the stats module). You will not want to write "matplotlib.pyplot" in every line, so we used an easy alias "plt".
+Here, we are importing a module from Matplotlib (just as we did with SciPy when importing stats). Writing "matplotlib.pyplot" repeatedly would be inconvenient, so we use the alias "plt" for simplicity.
 
-Before we create our graph, we need a new array, follow the next command block:
+Before creating our graph, we need a new array. Follow the next command block:
 ```python
 array3 = np.random.normal(loc=0, scale=2, size=50000)
 print(f"Numpy Array 3: {array3}\n")
@@ -346,12 +346,11 @@ Output
 ```
 
 
-This new function called "random.normal()" will create what we call a "bell curve" with random values. The meaning of this type of array will be explaned in a future section. Just know that the histogram of these numbers will form what it looks like a "bell". We passed 50.000 in the argument "size" to create an array with 50.000 numbers, simple as that.
+This new function, "random.normal()", generates what we call a "bell curve" with random values. The significance of this type of array will be explained in a future section. For now, just know that the histogram of these numbers will form a bell shape. We specify size=50000 to generate an array containing 50,000 numbers... simple as that.
 
-*Note: The intention here is to focus on the graph making and interpretation in central tendency. The meaning of the "array 3" function is part of another section!*
+*Note: The focus here is on creating and interpreting graphs for central tendency. The meaning of the "array3" function will be discussed in another section!*
 
-After this, we already can create our graph!
-
+Now, let’s generate our graph!
 
 ```python
 plt.hist(array3, bins=200)
@@ -361,12 +360,189 @@ plt.show()
 Output
 ![Hist Graph](/By_type/Statistics/basic_statistics_with_python/images/hist_graph2.png)
 
-So, is very simple to make this kind of basic graph. First, just use "plt" module to call the "hist" function. Inside this function, pass the array as an argument and the numbers of bins (we used 200, so it's 200 intervals!).
+Creating this type of basic graph is very simple. First, we use the "plt" module to call the hist function. Inside this function, we pass the array as an argument and specify the number of bins (we used 200, meaning 200 intervals!).
 
-The next thing is show the graph for us! If you use jupyter lab, you will only need the first line ("plt.hist(array3, bins=200)") to plot the graph and show it for you. But if you are using vscode or other similar code editon, you will need to use the command "plt.show()".
+The next step is displaying the graph in our screen! If you’re using Jupyter Lab, you only need the first line ("plt.hist(array3, bins=200)") to plot and display the graph automatically. However, if you’re using VS Code or another code editor, you’ll need to add "plt.show()".
 
-*Note: We created an array using np.random.normal(). This functions, as you can see, create RANDOM numbers based on some conditions, so my graph and your graph may look a little different.*
+Note: We created an array using np.random.normal(), which generates RANDOM numbers based on specified conditions, so your graph may look slightly different from mine.
 
+---
 
+#### **Ploting central tendency values in our hist graph**
 
+Now it’s time to visualize what we’ve learned about central tendency by plotting these values on our histogram. As we learned earlier, let’s calculate the mean and median for our data.
+
+```python
+array3_mean = np.round((array3.mean()), 4)
+array3_median = np.round(np.median(array3), 4)
+
+print(f"Array 3 Mean: {array3_mean}")
+print(f"Array 3 Median: {array3_median}\n")
+```
+
+Output
+
+```Terminal
+> Array 3 Mean: 0.0067
+> Array 3 Median: 0.0049
+```
+
+In this code, we introduced the round function, which rounds the results to four decimal places. This is useful because the raw result might contain a long series of digits after the decimal point, making it easier to read and interpret.
+
+With the mean and median calculated, what can we do next? Well, remember that these values give us important insights into the central tendency of the data. If you look at the output (yours may differ because we’re using random data, but it will be similar), you’ll notice that the mean and median are quite close to each other—in this case, with a difference of just 0.0018. This suggests a central peak at 0, where values are most evenly distributed around this point.
+
+To see this visually, let’s plot two vertical lines on our histogram: one for the mean and one for the median:
+
+```python
+plt.hist(array3, bins=200) # Old Line
+
+plt.axvline(array3_mean, color='red', linewidth=2, label=f'Mean {array3_mean}')
+plt.axvline(array3_mean, color='yellow', linewidth=2, label=f'Median {array3_median}')
+
+plt.show() # Old Line
+```
+Output
+![](/By_type/Statistics/basic_statistics_with_python/images/hist_graph3.png)
+
+Between the plt.hist() and plt.show() functions, we’ve added vertical lines to mark the mean and median values. This allows us to visually see what they represent in our graph.
+
+*Note: If you notice that only the "yellow line" is visible, it's because the red line is positioned very close to the yellow one. Since the values for the mean and median are so similar, the red line is obscured behind the yellow one (which was plotted last and overlaps the first line).*
+
+With both lines in the middle, we can clearly see that they are near the center of our "bell curve" graph. This confirms that the curve is symmetric. In a symmetric distribution, the numbers less than the mean (0) are nearly proportional to the numbers greater than 0, creating this balanced shape.
+
+- "But what if the mean were different from the median?"
+
+In that case, the graph would become asymmetric! Let’s explore this further.
+
+We’ll create a new .py file with the following code to generate a new, non-symmetrical distribution:
+
+```python
+import numpy as np
+from scipy import stats
+import matplotlib.pyplot as plt
+
+# -- new array!
+array4 = stats.skewnorm.rvs(a=3, loc=0, scale=2, size=50000)
+mode_adjustment = np.percentile(array4, 50) 
+array4 -= mode_adjustment
+# -- new array!
+
+array4_mean = np.round(array4.mean(), 4)
+array4_median = np.round(np.median(array4), 4)
+
+plt.figure(figsize=(14,8))
+plt.hist(array4, bins=200)
+
+plt.axvline(array4_mean, color='red', linewidth=2, label=f"Mean: {array4_mean}")
+plt.axvline(array4_median, color='Chartreuse', linewidth=2, label=f"Median: {array4_median}")
+
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+
+plt.legend()
+
+plt.show()
+```
+Output
+![](/By_type/Statistics/basic_statistics_with_python/images/hist_graph4.png)
+
+In this case, array4 is created to have a skewed bell curve. Notice that the mean is greater than the median. Visually, you can see that while the peak of the graph is still centered at 0, the right side is stretched more than the left side.
+
+This asymmetry implies that if we were to interpret this graph as representing something like average hourly salaries, the median would provide a better representation of the data than the mean. This is because the mean is pulled to the right due to the presence of a few high values. This type of distortion is often used in political propaganda to skew the public's understanding of the data.
+
+- "How does this happen?"
+
+Imagine that we add a very high set of values to our data set (numbers around 25-30). This will stretch the distribution to the right! Let’s add those high values and see what happens:
+
+```python
+#--old code
+array4 = stats.skewnorm.rvs(a=3, loc=0, scale=2, size=50000)
+mode_adjustment = np.percentile(array4, 50)
+array4 -= mode_adjustment 
+#--old code
+
+#---new (adding new high values to our array)
+newar = stats.skewnorm.rvs(a=-10, loc=30, scale=2, size=5000)
+array4 = np.append(array4, newar)
+#---new
+
+#--old code
+array4_mean = np.round(array4.mean(), 4)
+array4_median = np.round(np.median(array4), 4)
+
+plt.figure(figsize=(14,8))
+plt.hist(array4, bins=200)
+
+plt.axvline(array4_mean, color='red', linewidth=2, label=f"Mean: {array4_mean}")
+plt.axvline(array4_median, color='Chartreuse', linewidth=2, label=f"Median: {array4_median}")
+
+plt.xlabel('Values')
+plt.ylabel('Frequency')
+
+plt.legend()
+
+plt.show()
+#--old code
+```
+
+Output
+![](/By_type/Statistics/basic_statistics_with_python/images/hist_graph5.png)
+
+After adding these extreme values, you can see that both the mean and the median have shifted. The mean moved almost 2.7 units to the right, while the median only shifted 0.1 units. If you used the mean to represent the central tendency of the data, it would be misleading. The more asymmetrical the graph, the greater the discrepancy between the mean and median.
+
+---
+
+### **Central Tendency (Exercises)**
+
+Now that you’ve learned how to calculate the mean and median, and how these measures behave in symmetric and asymmetric distributions, let’s practice with some exercises. Here you will practice with 6 problems!
+
+#### Exercise 1 -----------------------------
+Given the following array:
+```python
+array = np.array([12, 15, 17, 19, 22, 23, 25, 29, 31, 35])
+mean = ?
+median = ?
+
+print(f"Mean: {mean}, Median: {median}")
+```
+Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
+
+#### Exercise 2 -----------------------------
+Given the following array:
+```python
+array = np.array([5, 10, 15, 25, 50, 70, 100, 200])
+mean = ?
+median = ?
+
+print(f"Mean: {mean}, Median: {median}")
+```
+Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
+#### Exercise 3 -----------------------------
+Given the following array:
+```python
+array = np.array([1, 3, 4, 4, 5, 7, 8, 9, 9, 10, 12, 13, 14, 15, 16])
+mean = ?
+median = ?
+
+print(f"Mean: {mean}, Median: {median}")
+```
+Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
+#### Exercise 4 -----------------------------
+Consider the following histogram.
+Observe the graph below and answer the following:
+![](/By_type/Statistics/basic_statistics_with_python/images/exec4.png)
+Is the mean equal to, greater than, or less than the median?
+Provide a brief explanation based on the graph.
+#### Exercise 5 -----------------------------
+Consider the following histogram.
+Observe the graph below and answer the following:
+![](/By_type/Statistics/basic_statistics_with_python/images/exec5.png)
+Is the mean equal to, greater than, or less than the median?
+Provide a brief explanation based on the graph.
+#### Exercise 6 -----------------------------
+Consider the following histogram.
+Observe the graph below and answer the following:
+![](/By_type/Statistics/basic_statistics_with_python/images/exec6.png)
+Is the mean equal to, greater than, or less than the median?
+Provide a brief explanation based on the graph.
 
