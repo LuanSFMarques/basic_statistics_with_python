@@ -500,7 +500,9 @@ After adding these extreme values, you can see that both the mean and the median
 
 ### **Central Tendency (Exercises)**
 
-Now that you’ve learned how to calculate the mean and median, and how these measures behave in symmetric and asymmetric distributions, let’s practice with some exercises. Here you will practice with 6 problems!
+Now that you’ve learned how to calculate the mean and median, and how these measures behave in symmetric and asymmetric distributions, let’s practice with some exercises. Here you will practice with 6 problems (1 to 6)!
+
+You can check the solutions here: [Exercise Solutions](exercises_solution)
 
 #### ------------------------- Exercise 1 -------------------------
 Given the following array:
