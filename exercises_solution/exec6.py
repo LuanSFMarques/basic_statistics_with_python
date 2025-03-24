@@ -11,3 +11,8 @@ plt.xlabel("Values", fontsize=12, fontweight='bold')
 plt.ylabel("Frequency", fontsize=12, fontweight='bold')
 
 plt.show()
+
+# Solution: The mean is less than the median.
+# Why: When the graph is stretched to the left, we have a mean less than the median.
+
+print(np.round(stats.skew(array), 3))

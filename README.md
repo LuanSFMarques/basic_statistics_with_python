@@ -504,6 +504,8 @@ Now that you’ve learned how to calculate the mean and median, and how these me
 
 You can check the solutions here: [Exercise Solutions](exercises_solution)
 
+*Note: If you struggle to solve a problem and don’t succeed, try not to check the answer immediately. Instead, take a step back—reread my explanations or research the topic on Google. This approach will help you understand the concept better and improve your learning!*
+
 #### ------------------------- Exercise 1 -------------------------
 Given the following array:
 ```python
@@ -513,7 +515,7 @@ median = ?
 
 print(f"Mean: {mean}, Median: {median}")
 ```
-Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
+Calculate the "mean" and the "median" using *np.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
 
 #### ------------------------- Exercise 2 -------------------------
 Given the following array:
@@ -524,7 +526,7 @@ median = ?
 
 print(f"Mean: {mean}, Median: {median}")
 ```
-Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
+Calculate the "mean" and the "median" using *np.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
 #### ------------------------- Exercise 3 -------------------------
 Given the following array:
 ```python
@@ -534,7 +536,7 @@ median = ?
 
 print(f"Mean: {mean}, Median: {median}")
 ```
-Calculate the "mean" and the "median" using *.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
+Calculate the "mean" and the "median" using *np.mean()* and *np.median()* AND tell if the graph will be almost symmetric or asymmetric.
 #### ------------------------- Exercise 4 -------------------------
 Consider the following histogram.
 
@@ -560,3 +562,60 @@ Observe the graph below and answer the following:
 Is the mean equal to, greater than, or less than the median?
 Provide a brief explanation based on the graph.
 
+---
+
+## **Distribution**
+
+### **Distribution (Theory)**
+
+*Distribution* is the second part of the three basic main caracteristics of the shape of a certain data (the first being the Central Tendency). If you take the word "distribution", you will see that we are talking about how things are distributed in our graph! While before whe focused on the center of our curve (mean, median, mode), now we are going to put full focus on what happens with the shape in general (including that borders and not only the middle part).
+
+Beeing honest, i already teached you the following topic but with very simple terms. You used Central Tendency values to know how the curve graph might look... Now, it's time to learn the full technical names and look deeply into the details.
+
+When you see that "strechness" that talked about, the cirrect name is **Skewness**!
+
+---
+
+#### Skewness
+
+This topic will already be familiar for you as i said, because we studied this before when we looked at the mean and the median in a graph and how they shape the curve. Simply put, a "skewed" graph is a graph that have a bigger *Tail* to one side than the other.
+
+Look at this graph that you have already seen in exercise 5 in the [Central Tendency exercises](#central-tendency-exercises)
+
+![Graph skewed to the right](images/exec5.png)
+
+This is a graph with a **Positive Skew**, and when we say *positive* is because the "tail" of the graph is stretched to the *positive* side. This means that we have values that are not necessarily positive, but is positive compared to the tip of the curve. It's like all the values to the right are positive compared to the values to the left, simple as that.
+
+In this other example, we see the opposite of a positive skew, and that means a **Negative Skew**
+
+![Graph skewed to the left](images/exec6.png)
+
+Here, you see that the values that are "deforming" our graph are the negative side of our curve, or simply put, the side to the left!
+
+- *"And what if the curve has a symmetric shape? Like when the mean and the median are mostly equal?"*
+
+In that case, we do not have a skew! Obviously is very hard to have a hist graph with real data (like math scores in a students class) that forms a perfect "bell curve", but sometimes we can simply assume that the graph is almost a perfect bell curve. That example is in the exercise 4 that you have already seen before:
+
+![Graph with no skew](images/exec4.png)
+
+In that case, you can assume that the "mean" and the "median" are almost the same. If you look closely to the graph, the right side is not perfectly equal to the left side, but if you look with a more generous eye, it looks very similar.
+
+- "Very cool... But we can't calculate some "skew" value in a graph?"
+
+Yep, you can! The real formula is very hard compared to the "mean" formula or the "median" formula, so we will keep this calculation to the practice section, with python... You can see why here:
+
+![Skewness Formula](images/skewness_formula.png)
+
+But this Doesn't prohibit us from learning what the result of the skewness formula looks like, so let's take a breath look at the results of the 3 graphs listed before:
+
+- Positive Skew Graph: 0.85
+
+- Negative Skew Graph: -0.85
+
+- No Skew Graph: -0.009 (Almost 0)
+
+So, the skewness value have a very straight foward interpretation: when the result is greater than 0, the graph have a positivite skew. When the result is less than 0, the graph have a negative skew.
+
+In the "no skew graph" example, the skewness result was *-0.009*, that means that actually the graph is a little skewed to the left (negative skew), but we can abstract that information and assume that the skewness is almost 0, that means "no skew" (remember, assuming that the graph skew is almost 0 doen't mean that the graph skew is exactly 0).
+
+We will learn in the practice section how to very easily calculate this without the need of this *horrendous* formula
