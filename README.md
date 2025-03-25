@@ -568,45 +568,45 @@ Provide a brief explanation based on the graph.
 
 ### **Distribution (Theory)**
 
-*Distribution* is the second part of the three basic main caracteristics of the shape of a certain data (the first being the Central Tendency). If you take the word "distribution", you will see that we are talking about how things are distributed in our graph! While before whe focused on the center of our curve (mean, median, mode), now we are going to put full focus on what happens with the shape in general (including that borders and not only the middle part).
+*Distribution* is the second part of the three main characteristics of the shape of a dataset (the first being Central Tendency). If you take the word "distribution," you will see that we are talking about how things are distributed in our graph! While before we focused on the center of our curve (mean, median, mode), now we are going to put full focus on what happens with the shape in general (including the borders and not just the middle part).
 
-Beeing honest, i already teached you the following topic but with very simple terms. You used Central Tendency values to know how the curve graph might look... Now, it's time to learn the full technical names and look deeply into the details.
+Being honest, I have already taught you the following topic but in very simple terms. You used Central Tendency values to understand how the curve graph might look... Now, it's time to learn the full technical names and look deeply into the details.
 
-When you see that "strechness" that talked about, the cirrect name is **Skewness**!
+When you see that "stretching" effect I talked about, the correct name is **Skewness**!
 
 ---
 
 #### Skewness
 
-This topic will already be familiar for you as i said, because we studied this before when we looked at the mean and the median in a graph and how they shape the curve. Simply put, a "skewed" graph is a graph that have a bigger *Tail* to one side than the other.
+This topic will already be familiar to you because we studied it before when we looked at the mean and the median in a graph and how they shape the curve. Simply put, a "skewed" graph is a graph that has a bigger *tail* on one side than the other.
 
-Look at this graph that you have already seen in exercise 5 in the [Central Tendency exercises](#central-tendency-exercises)
+Look at this graph that you have already seen in exercise 5 in the [Central Tendency exercises](#central-tendency-exercises):
 
 ![Graph skewed to the right](images/exec5.png)
 
-This is a graph with a **Positive Skew**, and when we say *positive* is because the "tail" of the graph is stretched to the *positive* side. This means that we have values that are not necessarily positive, but is positive compared to the tip of the curve. It's like all the values to the right are positive compared to the values to the left, simple as that.
+This is a graph with a **Positive Skew**, and when we say *positive*, it is because the "tail" of the graph is stretched to the *positive* side. This means that we have values that are not necessarily positive but are positive compared to the tip of the curve. It's like all the values to the right are positive compared to the values to the left—simple as that.
 
-In this other example, we see the opposite of a positive skew, and that means a **Negative Skew**
+In this other example, we see the opposite of a positive skew, which means a **Negative Skew**:
 
 ![Graph skewed to the left](images/exec6.png)
 
-Here, you see that the values that are "deforming" our graph are the negative side of our curve, or simply put, the side to the left!
+Here, you see that the values that are "deforming" our graph are on the negative side of our curve, or simply put, the left side!
 
 - *"And what if the curve has a symmetric shape? Like when the mean and the median are mostly equal?"*
 
-In that case, we do not have a skew! Obviously is very hard to have a hist graph with real data (like math scores in a students class) that forms a perfect "bell curve", but sometimes we can simply assume that the graph is almost a perfect bell curve. That example is in the exercise 4 that you have already seen before:
+In that case, we do not have a skew! Obviously, it is very hard to have a histogram with real data (like math scores in a student class) that forms a perfect "bell curve," but sometimes we can simply assume that the graph is almost a perfect bell curve. That example is in exercise 4, which you have already seen before:
 
 ![Graph with no skew](images/exec4.png)
 
-In that case, you can assume that the "mean" and the "median" are almost the same. If you look closely to the graph, the right side is not perfectly equal to the left side, but if you look with a more generous eye, it looks very similar.
+In that case, you can assume that the "mean" and the "median" are almost the same. If you look closely at the graph, the right side is not perfectly equal to the left side, but if you take a more generous perspective, it looks very similar.
 
-- "Very cool... But we can't calculate some "skew" value in a graph?"
+- *"Very cool... But can't we calculate some 'skew' value in a graph?"*
 
-Yep, you can! The real formula is very hard compared to the "mean" formula or the "median" formula, so we will keep this calculation to the practice section, with python... You can see why here:
+Yes, you can! The actual formula is quite complex compared to the "mean" or "median" formulas, so we will keep this calculation for the practice section, using Python. You can see why here:
 
 ![Skewness Formula](images/skewness_formula.png)
 
-But this Doesn't prohibit us from learning what the result of the skewness formula looks like, so let's take a breath look at the results of the 3 graphs listed before:
+But this doesn't stop us from learning what the result of the skewness formula looks like, so let's take a quick look at the results of the three graphs listed before:
 
 - Positive Skew Graph: 0.85
 
@@ -614,8 +614,44 @@ But this Doesn't prohibit us from learning what the result of the skewness formu
 
 - No Skew Graph: -0.009 (Almost 0)
 
-So, the skewness value have a very straight foward interpretation: when the result is greater than 0, the graph have a positivite skew. When the result is less than 0, the graph have a negative skew.
+So, the skewness value has a very straightforward interpretation: when the result is greater than 0, the graph has a **positive skew**. When the result is less than 0, the graph has a **negative skew**.
 
-In the "no skew graph" example, the skewness result was *-0.009*, that means that actually the graph is a little skewed to the left (negative skew), but we can abstract that information and assume that the skewness is almost 0, that means "no skew" (remember, assuming that the graph skew is almost 0 doen't mean that the graph skew is exactly 0).
+In the "no skew graph" example, the skewness result was *-0.009*, meaning that the graph is slightly skewed to the left (negative skew), but we can abstract that information and assume that the skewness is almost 0, meaning "no skew." (Remember, assuming that the graph's skew is almost 0 doesn't mean that the skew is exactly 0.)
 
-We will learn in the practice section how to very easily calculate this without the need of this *horrendous* formula
+We will learn in the practice section how to easily calculate this without needing this *horrendous* formula. Instead, we will use a skewness function from **scipy.stats**!
+
+---
+
+#### Kurtosis
+
+Another strange name to describe a very simple topic. But this time, it is a topic that we have not covered before.
+
+Kurtosis provides information about the "peak" of our curve, or more correctly, it refers to the degree of "tailedness."
+
+More technically speaking, Kurtosis describes how data is spread around the *mean*. The way that the frequency of values around the mean rises and falls affects the shape of the distribution.
+
+Look at this image as a reference:
+
+![Three Kurtosis Examples](images/kurtosis_graphs.png)
+
+Here we have three types of kurtosis: *Negative Kurtosis*, *Mesokurtic*, and *Positive Kurtosis*. Each of these indicates how much the values in the tail relate to the mean. 
+
+Before we look at each value, let's briefly explain what "slope" means (If you already know, feel free to skip this part). In a 2D graph, the slope of a function represents how steep a line is, describing the rate at which the y-value changes as the x-value increases. Mathematically, it is defined as the change in y divided by the change in x (Δy / Δx). However, in the context of kurtosis, we are not dealing with a simple linear slope but rather the overall shape of the curve. While a positive kurtosis curve rises sharply around the mean (steeper peak), a negative kurtosis curve is flatter, meaning the values are more evenly spread out. For a deeper understanding of slope in general, check out this: [Slope in wikipedia](https://en.wikipedia.org/wiki/Slope)
+
+Now, let's analyze the three graphs:
+- **Negative Kurtosis**: Here, we have a high initial slope that decreases when the frequency of values is similar to the frequency of the mean. The graph looks a lot like a negative quadratic function graph. The data is evenly spread and does not have extreme concentration near the mean.
+- **Mesokurtic (Normal)**: It has a moderate spread of values around the mean, forming a balanced distribution. It can be abstracted as resembling a linear function.
+- **Positive Kurtosis**: It has a low initial slope that increases rapidly as it approaches the mean (similar to an exponential function). This distribution contains a mix of small variations and a few very large differences (outliers).
+
+In practice, kurtosis helps in understanding risk, variability, and the presence of outliers.
+
+### Insights from each type of Kurtosis:
+- **Negative Kurtosis**: Your data has fewer extreme outliers and is more evenly spread. Useful when extreme deviations are unlikely.
+- **Mesokurtic (Normal)**: Your data has a balanced distribution with mild variations.
+- **Positive Kurtosis**: Your data has more extreme outliers than a normal distribution. It's useful for risk assessment (e.g., financial markets) and anomaly detection (e.g., fraud detection).
+
+So, summarizing, in this chapter we have explored how skewness and kurtosis describe the shape of a distribution, focusing on both the length of the tails and the "sharpness" of the curve. These two tools provide important insights into the characteristics of our data!
+
+Finally, I want you to think: *"Why is the name of this entire chapter 'distribution' and how does its meaning relate to skewness and kurtosis?"*
+
+### **Distribution (Practice)**
