@@ -652,6 +652,94 @@ In practice, kurtosis helps in understanding risk, variability, and the presence
 
 So, summarizing, in this chapter we have explored how skewness and kurtosis describe the shape of a distribution, focusing on both the length of the tails and the "sharpness" of the curve. These two tools provide important insights into the characteristics of our data!
 
-Finally, I want you to think: *"Why is the name of this entire chapter 'distribution' and how does its meaning relate to skewness and kurtosis?"*
+Finally, I want you to think: *"Why is the name of this entire chapter 'distribution' and how does its meaning relate to skewness and kurtosis?".* This will enhance your understanding of the concepts and encourage critical thinking.
+
+---
 
 ### **Distribution (Practice)**
+
+This chapter on distribution is the most abstract of the three in this mini-course. Visually, it might seem straightforward, but when you start thinking about the actual data, its values and frequencies, it can get a bit tricky. So, before we dive in, I encourage you to really visualize how the data behaves. Try to picture how numbers are distributed, not just the shape of the graph. Use the practice section to bring these concepts to life and make them easier to understand!
+
+---
+
+#### *Calculating Skewness*
+
+First, we will calculate the skew of an array! You can look at the file [skew_python.py](distribution_python/skew_python.py) and follow here.
+
+We need three arrays to represent each example of skew (normal, positive and negative). For this, i'm importing "scipy.stats.skewnorm.rvs()" to create a curve that have a certain value of skew.
+
+*Note: You don't need to decorate these array creation functions, just try to understand in theory what they are doing.*
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import stats
+
+# SKEW CALCULATIONS
+
+array1 = stats.skewnorm.rvs(a=0, loc=100, scale=4, size=50000)
+array2 = stats.skewnorm.rvs(a=5, loc=100, scale=4, size=50000)
+array3 = stats.skewnorm.rvs(a=-5, loc=100, scale=4, size=50000)
+
+array1_skew = stats.skew(array1)
+array2_skew = stats.skew(array2)
+array3_skew = stats.skew(array3)
+
+# RESULTS
+
+print(array1_skew, array2_skew, array3_skew)
+```
+
+Output
+``` terminal
+> 0.002230572975589915 0.8513237055319836 -0.860770190259566
+```
+
+Let's break this down step by step, making it more clear and simple:
+
+For each array, we use the rvs() function to create an array of size 50,000. The scale is set to 4 (don’t worry if this doesn’t make complete sense yet—we’ll explain it more in the next chapter. For now, just think of it as a way to control how spread out the values can be from the mean). The loc is set to 100, which represents the mean of the distribution (in simple words, it's where the center of the graph will be).
+
+Now, you might notice that the last argument in the rvs() function is "a". This is the skew of the distribution! Take a close look at the rvs() function for array1, array2, and array3. The only thing that changes between them is the value of "a":
+- Array 1 has *a* = 0, which means it has almost no skew
+- Array 2 has *a* positive skew because *a* is a positive number
+- Array 3 has *a* negative skew because *a* is a negative number
+
+The larger the value of "a" (either positive or negative), the more skewed the array becomes. This means the graph will become more stretched out in one direction.
+
+Next, let’s talk about the "skew()" function, which comes from scipy.stats. It does exactly what you think—it calculates the skew value of an array. To use this function, all you need to do is pass in your array, and it will give you the skew value.
+
+Now, let’s take a look at the results for the three arrays:
+
+- Array 1: 0.002
+
+- Array 2: 0.851
+
+- Array 3: -0.860
+
+The first value, as expected, is close to zero (which indicates that the array is "normal," based on our abstraction). The second value is noticeably positive, while the third value is the opposite, being negative. Pretty straightforward, right?
+
+- "Cool, but what can I do with this value?"
+
+Good question! The skew value is super useful when you’re looking for outliers—values that are far away from the rest of the data.
+
+- [10.000, 12.000, 12.500, 15.000, 16.000, 16.000, 100.000]
+
+Can you identify the type of skew in this array? Take a look at how the values relate to each other. If you guessed positive skew, you’re spot on. But why is that? 
+
+We have values ranging from 10,000 to 16,000, which could represent, for example, monthly salaries of workers. Then, suddenly, there’s a salary of 100,000 in the data. This outlier causes the distribution to skew, and because the outlier is much higher, we say it’s skewed to the right (positive). If you calculate the mean and median, you’ll notice that the mean will be larger than the median. 
+
+Here are the statistics:
+
+- [10.000, 12.000, 12.500, 15.000, 16.000, 16.000, 100.000]
+- Mean: 23.07
+- Median: 15.0
+- Skewness: 2
+
+As you can see, the skew value of 2 indicates that the data is distorted to the right, and the outlier (100.000) is likely an invalid value or outlier that we might want to reconsider.
+
+In simple terms, if your data is skewed, take a closer look at the values to figure out what’s causing the skew. If you find a value that seems out of place or doesn’t make sense, it’s probably an outlier, and you may want to ignore it in your analysis. In the exercise session, you will practice this concept with exercises!
+
+---
+
+#### *Calculating Kurtosis*
+
