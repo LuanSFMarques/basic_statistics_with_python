@@ -664,9 +664,7 @@ This chapter on distribution is the most abstract of the three in this mini-cour
 
 #### *Calculating Skewness*
 
-First, we will calculate the skew of an array! You can look at the file [skew_python.py](distribution_python/skew_python.py) and follow here.
-
-We need three arrays to represent each example of skew (normal, positive and negative). For this, i'm importing "scipy.stats.skewnorm.rvs()" to create a curve that have a certain value of skew.
+First, we need three arrays to represent each example of skew (normal, positive and negative). For this, i'm importing "scipy.stats.skewnorm.rvs()" to create a curve that have a certain value of skew. You can look at the file [skew_python.py](distribution_python/skew_python.py) and follow here.
 
 *Note: You don't need to decorate these array creation functions, just try to understand in theory what they are doing.*
 
@@ -743,3 +741,63 @@ In simple terms, if your data is skewed, take a closer look at the values to fig
 
 #### *Calculating Kurtosis*
 
+You've learned how to calculate skewness - now let's tackle kurtosis! The interpretation is similar: the further the result is from zero, the more pronounced the effect.
+
+We'll create three datasets (one for each kurtosis type) and then use SciPy's kurtosis function. Follow along with the code in [skew_python.py](distribution_python/kurt_python.py).
+
+```python
+import numpy as np
+import scipy.stats as stats
+import matplotlib.pyplot as plt
+
+np.random.seed(42)
+data = np.random.normal(loc=0, scale=1, size=50000)
+
+data_pos_kurt = np.concatenate([data, np.random.normal(loc=0, scale=0.5, size=25000)])
+
+data_neg_kurt = (np.random.beta(a=2, b=2, size=50000) - 0.5)
+
+print("Kurtosis (Base Normal):", stats.kurtosis(data, fisher=True))
+print("Kurtosis (Positive):", stats.kurtosis(data_pos_kurt, fisher=True))
+print("Kurtosis (Negative):", stats.kurtosis(data_neg_kurt, fisher=True))
+```
+Output
+```Terminal
+Kurtosis (Base Normal): 0.0010178213947216186
+Kurtosis (Positive): 0.6665276676870309 
+Kurtosis (Negative): -0.8533828238297594
+```
+
+Don't worry about how we created the arrays - just focus on the stats.kurtosis() function from SciPy.
+
+Key observations:
+
+- Normal kurtosis ≈ 0 (balanced tails)
+
+- Positive kurtosis > 0 (heavier tails, more outliers)
+
+- Negative kurtosis < 0 (lighter tails, fewer outliers)
+
+When you get a number close to zero, that's your basic normal distribution with regular tails. But when that number starts climbing into positive territory (like our 0.67), that means you've got some fat tails going on - more extreme values than you'd normally expect. On the flip side, when it dips negative (like our -0.85), you're looking at thinner tails with fewer outliers. The bigger the number from zero, the more dramatic this tail behavior gets.
+
+Now about that "fisher=True" thing - it's basically there to make your life easier. See, normally a perfect bell curve would give you kurtosis of 3, which is kinda weird to work with. So Fisher's adjustment just subtracts 3 to bring it down to zero. That way, when you see our normal result of 0.001 instead of 3.001, it's way more obvious at a glance what's going on.
+
+So now you've got two slick tools in your stats toolbox - skewnorm.rvs() for checking skewness and kurtosis() for tail analysis.
+
+### **Distribution (Exercises)**
+
+It's time to practice! You can check the solutions here: [Exercise Solutions](exercises_solution)
+
+#### ------------------------- Exercise 7 -------------------------
+Given the following array:
+```python
+import numpy as np
+import scipy.stats as stats
+
+array = np.arange(-100, 100, 2)
+skewness = ?
+kurtosis = ?
+
+print(f"Skewness: {skewness}, Kurtosis: {kurtosis}")
+```
+Calculate the value of skewness and kurtosis, and finally calculate 
