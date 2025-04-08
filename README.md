@@ -800,4 +800,77 @@ kurtosis = ?
 
 print(f"Skewness: {skewness}, Kurtosis: {kurtosis}")
 ```
-Calculate the value of skewness and kurtosis, and finally calculate 
+Calculate skewness and kurtosis values using stats.skew() and stats.kurtosis() functions, and explain how to interpret these values for given array.
+
+#### ------------------------- Exercise 8 -------------------------
+Given the following array:
+```python
+import numpy as np
+import scipy.stats as stats
+
+np.random.seed(42)
+array = np.random.exponential(scale=1, size=700) 
+skewness = ?
+kurtosis = ?
+
+print(f"Skewness: {skewness}, Kurtosis: {kurtosis}")
+```
+Calculate skewness and kurtosis values using stats.skew() and stats.kurtosis() functions, and explain how to interpret these values for given array.
+
+#### ------------------------- Exercise 9 -------------------------
+Given the following array:
+```python
+import numpy as np
+import scipy.stats as stats
+
+np.random.seed(42)
+array = np.random.normal(loc=0, scale=1, size=int(1000 * 0.7))
+
+skewness = ?
+kurtosis = ?
+
+print(f"Skewness: {skewness}, Kurtosis: {kurtosis}")
+```
+Calculate skewness and kurtosis values using stats.skew() and stats.kurtosis() functions, and explain how to interpret these values for given array.
+
+#### ------------------------- Exercise 10 and 11-------------------------
+
+!["Normal Curve"](images\exec10_normal.png)
+
+Given this reference graph with skewness = 0 and kurtosis = 0, predict the expected skewness and kurtosis values for the subsequent graphs between the following options:
+- skewness < 0
+- skewness = 0 (almost)
+- skewness > 0
+
+and
+
+- kurtosis < 0
+- kurtosis = 0 (almost)
+- kurtosis > 0
+
+A)
+!["Fat Curve"](images\fat_graph.png)
+
+B)
+
+!["Peak Curve"](images\peak_graph.png)
+.
+
+#### ------------------------- Exercise 12-------------------------
+
+You’re analyzing salaries at a tech company. The histogram shows:
+
+- A cluster of most employees between 50K–100K
+- A few executives earning $500K+
+
+Answer the following questions:
+
+A) What is expected skewness of this distribution? Why?
+
+B) If the company capped salaries at $200K, how would skewness and kurtosis change?
+
+---
+
+## **Dispersion**
+
+### **Dispersion (Theory)**
